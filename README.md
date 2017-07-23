@@ -37,4 +37,4 @@ You only need to provide the service definition with `--service` and the cluster
 
 Example:
 
-`node ./dist/app.dist.js --cluster docker-cluster-dev-22 --service lml-si-hello-service-test-dev-53-ECSService-1XFGS3P5NX0Q4`
+`node ./dist/app.dist.js --cluster docker-cluster --service serviceName`
