@@ -29,7 +29,7 @@ const restartService = async (cluster, serviceName) => {
 
   for(var i = 0 ; i < taskArns.length; i++){
     const res = await ecs.stopTask(cluster, taskArns[i])
-    consolecs.log('[+] Stopped: ', res.task)
+    console.log('[+] Stopped: ', res.task)
 
     while(await runningCountGen() != desiredCount){
       await sleep()
