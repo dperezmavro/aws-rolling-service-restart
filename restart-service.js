@@ -21,6 +21,7 @@ const getDesiredCount = (cluster, serviceName) => {
 const sleep = () => new Promise((res, rej) => {setTimeout(res, 1000)})
 
 const restartService = async (cluster, serviceName) => {
+  console.log(`[*] Restarting service ${serviceName} in ${cluster} `)
   const desiredCount = await getDesiredCount(cluster, [serviceName])
   const runningCountGen = getRunningCount(cluster, [serviceName])
   const runningCount = runningCountGen()
