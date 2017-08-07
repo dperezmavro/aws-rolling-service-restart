@@ -10,7 +10,8 @@
     "make": "./node_modules/.bin/webpack"
   },
   "files": [
-    "dist/restart-service.dist.js"
+    "dist/restart-service.dist.js",
+    "dist/app.dist.js"
   ],
   "author": "dpm",
   "license": "ISC",

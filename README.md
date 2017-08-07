@@ -31,7 +31,7 @@ This is a helper function that will give you a list of clusters with their servi
 
 # CLI usage
 
-Run `npm install` and then `npm run make` (twice at this point, there's a bug in the build script). This will generate the executable you can run under `./dist/app.dist.js`
+Run `npm install` and then `npm run make`. This will generate the executable you can run under `./dist/app.dist.js`
 
 You only need to provide the service definition with `--service` and the cluster name with `--cluster`. Both of those can be found in the ECS console.
 
