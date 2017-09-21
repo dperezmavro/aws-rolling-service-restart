@@ -47,6 +47,10 @@ const fetchAllServices = (clusterArn) => {
       tempRes = await ecs.listServices(clusterArn, tempRes.nextToken)
     }
 
+    if(tempRes.serviceArns){
+      results = results.concat(tempRes.serviceArns)
+    }
+
     resolve({
       clusterArn,
       serviceArns: results
