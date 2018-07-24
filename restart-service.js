@@ -48,7 +48,7 @@ const restartServiceWithSleep = async (cluster, serviceName, sleepDuration) => {
     const res = await ecs.stopTask(cluster, taskArns[i])
     console.log('[+] Stopped: ', res.task)
 
-    while(await runningCountGen() != desiredCount){await sleep(30)}
+    while(await runningCountGen() != desiredCount){await sleep(sleepDuration)}
   }
 }
 
