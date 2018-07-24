@@ -86,5 +86,6 @@ export default restartService
 
 export {
   restartService,
+  restartServiceWithSleep,
   getServicesInclusters
 }
