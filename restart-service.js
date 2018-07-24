@@ -18,7 +18,7 @@ const getDesiredCount = (cluster, serviceName) => {
   })
 }
 
-const sleep = () => new Promise((res, rej) => {setTimeout(res, 1000)})
+const sleep = (duration = 1) => new Promise((res, rej) => {setTimeout(res, duration * 1000)})
 
 const restartService = async (cluster, serviceName) => {
   console.log(`[*] Restarting service ${serviceName} in ${cluster} `)
@@ -32,9 +32,23 @@ const restartService = async (cluster, serviceName) => {
     const res = await ecs.stopTask(cluster, taskArns[i])
     console.log('[+] Stopped: ', res.task)
 
-    while(await runningCountGen() != desiredCount){
-      await sleep()
-    }
+    while(await runningCountGen() != desiredCount){await sleep()}
+  }
+}
+
+const restartServiceWithSleep = async (cluster, serviceName, sleepDuration) => {
+  console.log(`[*] Restarting service ${serviceName} in ${cluster} `)
+  const desiredCount = await getDesiredCount(cluster, [serviceName])
+  const runningCountGen = getRunningCount(cluster, [serviceName])
+  const runningCount = runningCountGen()
+
+  const {taskArns} = await ecs.listTasks(cluster, serviceName)
+
+  for(var i = 0 ; i < taskArns.length; i++){
+    const res = await ecs.stopTask(cluster, taskArns[i])
+    console.log('[+] Stopped: ', res.task)
+
+    while(await runningCountGen() != desiredCount){await sleep(30)}
   }
 }
 
