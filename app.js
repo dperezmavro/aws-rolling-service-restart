@@ -1,6 +1,7 @@
 import opts from 'options'
 import {
   restartService,
+  restartServiceWithSleep,
   getServicesInclusters
 } from './restart-service.js'
 
