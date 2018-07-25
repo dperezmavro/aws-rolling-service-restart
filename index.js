@@ -1,6 +1,5 @@
-const {restartService, restartServiceWithSleep} = require('./dist/restart-service.dist.js')
+const restartService = require('./dist/restart-service.dist.js')
 
 module.exports = {
-  restartService,
-  restartServiceWithSleep
+  restartService
 }
