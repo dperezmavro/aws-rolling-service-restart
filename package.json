@@ -1,6 +1,6 @@
 {
   "name": "aws-rolling-service-restart",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "repository": {
     "type": "git",
     "url": "https://github.com/dperezmavro/aws-rolling-service-restart"
